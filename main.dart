@@ -20,17 +20,8 @@ void main() {
   bool gameRunning = true;
   List<String> pNames = [];
   int currentPlayer = 0;
-  /*
-Ideen für Multiplayer:
 
-List<int> lives = [3,3];
 
-int player = 0;
-int playerCount = 2;
-
-lives[player];
-player =  (player + 1) % 2;
-*/
   while (playerCount == null) {
     print("Wie viele Spieler spielen mit (1-13)?");
     input = stdin.readLineSync() ?? "";
