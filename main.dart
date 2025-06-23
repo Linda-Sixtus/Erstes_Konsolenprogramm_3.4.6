@@ -21,7 +21,7 @@ void main() {
   List<String> pNames = [];
   int currentPlayer = 0;
 
-
+//Anzahl der Spieler wird abgefragt:
   while (playerCount == null) {
     print("Wie viele Spieler spielen mit (1-13)?");
     input = stdin.readLineSync() ?? "";
