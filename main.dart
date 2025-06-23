@@ -8,7 +8,7 @@ void main() {
    *      Anzahl der Verduche wird bei richtiger Eingabe ausgegeben.
    */
 
-//Initialisierung der Variablen:
+  //Initialisierung der Variablen:
   int? playerCount = null;
   Random randomizer = Random();
   String input;
@@ -31,23 +31,23 @@ int playerCount = 2;
 lives[player];
 player =  (player + 1) % 2;
 */
-  while(playerCount == null){
-    print ("Wie viele Spieler spielen mit (1-13)?");
+  while (playerCount == null) {
+    print("Wie viele Spieler spielen mit (1-13)?");
     input = stdin.readLineSync() ?? "";
     playerCount = int.tryParse(input);
     if (playerCount == null || playerCount < 1 || playerCount > 13) {
-      print ("UNGÜLTIGE EINGABE..");
+      print("UNGÜLTIGE EINGABE..");
       playerCount = null;
     }
   }
 
   // Schleife geht Anzahl der Spieler durch und wenn Wert eingegeben, kommt die Aufforderung den Namen einzugeben.
-  for (int i=1; i<=playerCount; i++){
+  for (int i = 1; i <= playerCount; i++) {
     counter.add(0);
     lives.add(3);
-    print ("Spieler $i: Gebe deinen Namen ein.");
+    print("Spieler $i: Gebe deinen Namen ein.");
     input = stdin.readLineSync() ?? "Spieler $i";
-    pNames.add (input);
+    pNames.add(input);
   }
 
   while (gameRunning) {
@@ -56,7 +56,7 @@ player =  (player + 1) % 2;
    * Hier beginnt der Game Lifecycle wenn noch leben übrig sind:
    */
 
-    print ("${pNames[currentPlayer]}, Du bist dran!");
+    print("${pNames[currentPlayer]}, Du bist dran!");
 
     while (lives[currentPlayer] > 0) {
       counter[currentPlayer] = 0;
@@ -88,7 +88,9 @@ player =  (player + 1) % 2;
           } else if (number < memorizer) {
             print("Der Wert $number ist zu niedrig..");
           } else {
-            print("Richtig geraten! Du hast ${counter[currentPlayer]} Versuch(e) gebraucht.");
+            print(
+              "Richtig geraten! Du hast ${counter[currentPlayer]} Versuch(e) gebraucht.",
+            );
             if (counter[currentPlayer] <= 5) {
               lives[currentPlayer]++;
               print("Yaaay! Du hast ein EXTRALEBEN erspielt!");
@@ -101,14 +103,6 @@ player =  (player + 1) % 2;
       }
       // Nächster Spieler ist dran
       currentPlayer = (currentPlayer++) % playerCount;
-
-/**   Alternativ:
-      currentPlayer++;
-      if (currentPlayer > playerCount - 1) {
-        currentPlayer = 0;
-      }
- */
-      
     }
     print("GAME OVER!");
 
