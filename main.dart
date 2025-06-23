@@ -34,8 +34,6 @@ void main() {
 
   // Schleife geht Anzahl der Spieler durch und wenn Wert eingegeben, kommt die Aufforderung den Namen einzugeben.
   for (int i = 1; i <= playerCount; i++) {
-    counter.add(0);
-    lives.add(3);
     print("Spieler $i: Gebe deinen Namen ein.");
     input = stdin.readLineSync() ?? "Spieler $i";
     pNames.add(input);
@@ -47,7 +45,10 @@ void main() {
    * Hier beginnt der Game Lifecycle wenn noch leben übrig sind:
    */
 
-    print("${pNames[currentPlayer]}, Du bist dran!");
+    for (int i = 1; i <= playerCount; i++) {
+      counter.add(0);
+      lives.add(3);
+    }
 
     while (lives[currentPlayer] > 0) {
       counter[currentPlayer] = 0;
@@ -64,7 +65,7 @@ void main() {
           lives[currentPlayer]--;
           break;
         }
-
+        print("${pNames[currentPlayer]}, Du bist dran!");
         print(
           "Rate eine Zahl zwischen 1 und 1000.(Noch ${maxCounter - counter[currentPlayer]} Versuche..)",
         );
@@ -93,9 +94,11 @@ void main() {
         }
       }
       // Nächster Spieler ist dran
-      currentPlayer = (currentPlayer++) % playerCount;
+      currentPlayer = (currentPlayer+1) % playerCount;
     }
     print("GAME OVER!");
+
+//GAMEOVER LOGIK muss ich noch anpassen..
 
     print("Willst Du weglaufen (J/N)?");
     input = stdin.readLineSync() ?? "";
