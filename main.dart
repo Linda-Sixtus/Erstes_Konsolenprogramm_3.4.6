@@ -6,6 +6,10 @@ void main() {
    * mvp: Zahlen werden zufällig generiert und man kann die Zahl eingeben welche man vermutet.
    *      Bei falschem Wert gibt es den Hinweis, ob zu hoch oder zu  niedrig.
    *      Anzahl der Verduche wird bei richtiger Eingabe ausgegeben.
+   * 
+   * ----------------------------------------------------------------------------------------------------
+   * 
+   * HasWinner soll rein playerClass und viel in Methoden auslagern.....
    */
 
   Random randomizer = new Random();
